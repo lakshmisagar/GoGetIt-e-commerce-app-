@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ILoveZappos</string>
+    <string name="action_buy">Buy</string>
+    <string name="action_cart">Launch Cart</string>
+    <string name="action_share">Share Product</string>
+    <string name="search_title">Search brands and products</string>
+    <string name="action_settings">Settings</string>
+</resources>

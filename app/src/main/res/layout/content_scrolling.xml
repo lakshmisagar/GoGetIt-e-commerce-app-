@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<data>
+    <variable
+        name="product"
+        type="DataBinding.Product"/>
+</data>
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/content_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGreyLight"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="ilovezappos.android.com.ilovezappos.ZapposMainActivity"
+        tools:showIn="@layout/activity_zappos_main">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="wrap_content"
+            android:layout_height="00dp"
+            android:layout_margin="@dimen/card_margin"
+            android:elevation="13dp"
+            app:cardBackgroundColor="@color/colorWhite"
+            card_view:cardCornerRadius="@dimen/fab_margin"
+            tools:layout_editor_absoluteX="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/product_desc_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/album_title_padding"
+                    android:paddingLeft="@dimen/album_title_padding"
+                    android:paddingRight="@dimen/album_title_padding"
+                    android:paddingTop="@dimen/album_title_padding"
+                    android:text="@{product.productDesc}"
+                    android:textColor="@color/colorLabelFab"
+                    android:textSize="@dimen/product_description_text_size" />
+
+                <TextView
+                    android:id="@+id/price_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/product_desc_card"
+                    android:layout_marginTop="@dimen/album_title_padding"
+                    android:paddingLeft="@dimen/album_title_padding"
+                    android:paddingRight="@dimen/album_title_padding"
+                    android:text="@{product.productPrice}"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/product_brant_text_size" />
+
+                <TextView
+                    android:id="@+id/price_off"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/price_card"
+                    android:paddingBottom="@dimen/album_title_padding"
+                    android:paddingLeft="@dimen/ic_album_overflow_width"
+                    android:paddingRight="@dimen/album_title_padding"
+                    android:text="@{product.discount}"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="20dp" />
+
+                <ImageView
+                    android:id="@+id/favorite_card"
+                    android:layout_width="@dimen/product_fav_size"
+                    android:layout_height="@dimen/product_fav_size"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/product_desc_card"
+                    android:layout_marginRight="@dimen/product_fav_margin"
+                    android:layout_marginTop="@dimen/album_title_padding"
+                    android:elevation="20dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/nolike" />
+
+                <TextView
+                    android:id="@+id/buy_link"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/favorite_card"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/fab_margin"
+                    android:layout_marginTop="@dimen/album_title_padding"
+                    android:clickable="true"
+                    android:onClick="onBuy"
+                    android:text="@string/action_buy"
+                    android:textSize="@dimen/product_buy_size" />
+
+                <TextView
+                    android:id="@+id/cart_launch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/buy_link"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/fab_margin"
+                    android:layout_marginTop="@dimen/album_title_padding"
+                    android:clickable="true"
+                    android:onClick="launchCart"
+                    android:text="@string/action_cart"
+                    android:textSize="@dimen/product_buy_size" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </android.support.v4.widget.NestedScrollView>
+</layout>

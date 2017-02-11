@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<data>
+    <variable
+        name="FabHandler"
+        type="ilovezappos.android.com.ilovezappos.ZapposMainActivity.FabHandler"/>
+    <variable
+        name="product"
+        type="DataBinding.Product"/>
+</data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="ilovezappos.android.com.ilovezappos.ZapposMainActivity">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="456dp"
+            android:background="#FFF"
+            android:fitsSystemWindows="true"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="456dp"
+                android:fitsSystemWindows="true"
+                app:collapsedTitleTextAppearance="@color/cardview_dark_background"
+                app:contentScrim="@color/orangeLight"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/orangeLight"
+                    app:layout_collapseMode="none"
+                    android:title="@string/app_name"
+                    app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/thumbnail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/thumbnail_margin"
+                    android:src="@drawable/no_internet" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="@dimen/fab_size"
+            android:layout_height="@dimen/fab_size"
+            android:layout_margin="@dimen/fab_margin"
+            app:backgroundTint="@color/orange"
+            app:layout_anchor="@id/app_bar"
+            app:layout_anchorGravity="bottom|end"
+            android:onClick="@{FabHandler::onBaseFabClick}"
+            android:src="@drawable/cartclear" />
+
+        <include layout="@layout/content_scrolling" />
+    </android.support.design.widget.CoordinatorLayout>
+</layout>
